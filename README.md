@@ -74,15 +74,10 @@ ACT uses a multi-stage processing pipeline.
                 Random Forest Classifier
                   Activity Prediction
                          |
-                         v
-                   Qwen via Ollama
-                 Context Interpretation
                          |
-              +----------+----------+
-              |                     |
-              v                     v
-         Voice Output         Smart-Home Actions
-                              (Kasa Integration)
+                         v
+                Smart-Home Actions
+                (Kasa Integration)
 ```
 
 ### 1. Video acquisition
@@ -129,7 +124,7 @@ A trained Random Forest classifier processes extracted activity features and pre
 
 The current activity categories include studying, going to school, and going to bed.
 
-### 6. Language model and assistance
+### 6. Language model and assistance (No longer in plan)
 
 ACT uses Qwen through Ollama to interpret activity context and generate natural-language responses. The language model is intended to run locally rather than requiring a hosted LLM API.
 
@@ -148,8 +143,6 @@ The system includes voice-output functionality and an integration with Kasa smar
 | Object detection | Ultralytics YOLOv8 |
 | Pose estimation | MediaPipe |
 | Activity classification | Scikit-learn Random Forest |
-| Language model | Qwen |
-| Local LLM runtime | Ollama |
 | Smart-home integration | Kasa |
 | Metrics | Prometheus |
 | Dashboard | Grafana |
