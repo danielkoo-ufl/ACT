@@ -128,9 +128,9 @@ The current activity categories include studying, going to school, and going to 
 
 ACT uses Qwen through Ollama to interpret activity context and generate natural-language responses. The language model is intended to run locally rather than requiring a hosted LLM API.
 
-### 7. Voice and smart-home integration
+### 7. Smart-home integration 
 
-The system includes voice-output functionality and an integration with Kasa smart-home devices. These components allow ACT to explore context-aware assistance beyond displaying computer vision predictions.
+The system integrates with Kasa smart-home devices. These components allow ACT to explore context-aware assistance beyond displaying computer vision predictions.
 
 ---
 
