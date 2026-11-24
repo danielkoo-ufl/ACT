@@ -244,7 +244,6 @@ Install the following:
 - Python 3.10 or 3.11
 - Git
 - FFmpeg (for RTSP streaming)
-- Ollama (for local language model inference)
 
 Docker Desktop is optional.
 
@@ -491,46 +490,6 @@ The RTSP stream must be running before ACT attempts to connect.
 
 ---
 
-## Language Model Setup
-
-ACT uses Qwen through Ollama for local language-model inference.
-
-### 1. Install Ollama
-
-Download and install Ollama:
-
-https://ollama.com/
-
-### 2. Download the Qwen model
-
-Open a terminal and run:
-
-```bash
-ollama pull qwen2.5:7b
-```
-
-Use the model identifier expected by the current ACT source code. If the project specifies another Qwen model or tag, pull that exact model instead.
-
-### 3. Start Ollama
-
-Ollama normally runs as a background service after installation.
-
-Verify that it is available:
-
-```bash
-ollama list
-```
-
-You can also test inference directly:
-
-```bash
-ollama run qwen2.5:7b
-```
-
-ACT should invoke the local Ollama service when its language-model component is triggered.
-
----
-
 ## Smart Home Integration
 
 ACT includes Kasa smart-home integration for exploring context-aware device control.
@@ -660,16 +619,6 @@ The configured path and downloaded filename must match.
 - Confirm that FFmpeg is publishing to the correct stream path.
 - Check that ACT is using the correct address for its execution environment.
 - For Docker Desktop, use `host.docker.internal` rather than the container's own `localhost`.
-
-### Ollama cannot connect
-
-Confirm that Ollama is running:
-
-```bash
-ollama list
-```
-
-Verify that the model expected by the application has been downloaded.
 
 ### Slow inference
 
