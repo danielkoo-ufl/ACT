@@ -1,0 +1,22 @@
+
+# Core numerical dependencies
+numpy==1.26.4
+pandas>=2.2,<3.0
+# Computer vision
+mediapipe==0.10.21
+opencv-contrib-python==4.11.0.86
+
+# Object detection
+ultralytics>=8.3,<8.4
+
+# Event classification
+scikit-learn>=1.5,<1.7
+joblib>=1.4,<1.5
+
+# Smart home integration
+python-kasa>=0.10,<0.13
+
+# Python 3.10 TOML compatibility
+tomli==2.2.1
+
+prometheus-client>=0.20,<1.0

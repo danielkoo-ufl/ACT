@@ -1,0 +1,68 @@
+# ACT deployment config. Secrets (bulb login) live in .env, NOT here.
+# Relative paths are resolved against the folder containing config.py.
+
+[paths]
+yolo_model  = "YOLO/yolov8s.pt"
+pose_model  = "POSES/pose_landmarker_heavy.task"
+event_model = "artifacts/event_model.joblib"
+video_file  = "resources/sitting.mov"   # only used when input = "video"
+output_dir  = "output"
+log_file    = "output/act.log"
+
+[runtime]
+input         = "stream"
+camera_index  = 0
+stream_url    = "rtsp://host.docker.internal:8554/act"
+mirror        = true
+headless      = true
+display_width = 960
+save_video    = false
+save_csv      = false
+reconnect_s   = 5
+
+[context]                 # things a camera can't see; must exist in dataset.csv
+age               = 23
+occupation        = "student_grad"
+zone              = "bed"
+is_school_holiday = 0
+is_off_routine    = 0
+# Live deployment: leave empty so the real clock is used.
+# For testing a fake time, e.g. "2026-11-10T22:30:00".
+start_time = ""
+
+# Names must match the constants in ACT.py (uppercased when applied).
+[vision]
+yolo_conf       = 0.3
+near_frac       = 0.35
+rise_frac       = 0.04
+release_gap     = 5
+pick_show       = 15
+put_show        = 15
+reach_frames    = 3
+face_frac       = 0.20
+sit_knee_margin = 0.10
+smooth          = 3
+lying_angle     = 35
+
+[bulb]
+enabled   = true
+host      = "192.168.1.195"   # give the bulb a DHCP reservation in your router
+min_conf  = 0.5
+hold      = 3                 # consecutive ~1s predictions before switching
+cooldown  = 10                # min seconds between scene changes
+
+[bulb.scenes.going_to_bed]
+brightness = 10
+color_temp = 2200
+
+[bulb.scenes.studying]
+brightness = 100
+color_temp = 5000
+
+[bulb.scenes.going_to_work]
+brightness = 80
+color_temp = 4000
+
+[bulb.scenes.going_to_school]
+brightness = 80
+color_temp = 4000
